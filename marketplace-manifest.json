@@ -1,0 +1,36 @@
+{
+  "$schema": "https://inlang.com/schema/marketplace-manifest",
+  "id": "plugin.inlang.messageFormat.hjson.toml",
+  "displayName": {
+    "en": "inlang message format (JSON/TOML/HJSON)"
+  },
+  "description": {
+    "en": "A flexible storage plugin for inlang that supports JSON, TOML and HJSON formats."
+  },
+  "pages": {
+    "/": "./README.md",
+    "/changelog": "./CHANGELOG.md"
+  },
+  "keywords": [
+    "website",
+    "svelte",
+    "react",
+    "nextjs",
+    "vue",
+    "javascript",
+    "storage",
+    "save",
+    "load",
+    "import",
+    "export",
+    "messages",
+    "plugin",
+    "solid",
+    "astro",
+    "toml",
+    "hjson"
+  ],
+  "publisherName": "opus",
+  "license": "MIT",
+  "module": "https://cdn.jsdelivr.net/npm/plugin-message-format-hjson-toml@latest/dist/index.js"
+}
