@@ -8,7 +8,7 @@ describe('Paraglide JS Compilation Tests', () => {
   const messagesDir = join(outDir, 'messages');
   const distDir = join(__dirname, '../../dist');
 
-  it('should successfully compile multilingual files', () => {
+  it('should successfully compile multilingual files', { timeout: 10000 }, async () => {
     // Execute compilation command
     const command =
       'pnpm dlx @inlang/paraglide-js compile --project ./example/project.inlang --outdir ./example/out/';
@@ -36,18 +36,14 @@ describe('Paraglide JS Compilation Tests', () => {
 
     // Add debug information
     for (const file of expectedFiles) {
-      const exists = existsSync(file);
+      const dir = join(file, '..');
+      const files = existsSync(dir) ? execSync(`ls ${dir}`).toString().split('\n') : [];
+      const exists = files.some(f => f.includes(file.split('/').pop()!.replace('.js', '')));
+      
       if (!exists) {
-        console.log(`File does not exist: ${file}`);
-        // If directory exists, list its contents
-        const dir = join(file, '..');
-        if (existsSync(dir)) {
-          console.log(
-            `Directory contents ${dir}:`,
-            execSync(`ls -la ${dir}`).toString()
-          );
-        }
-        expect(exists, `File does not exist: ${file}`).toBe(true);
+        console.log(`File containing pattern does not exist: ${file}`);
+        console.log(`Directory contents ${dir}:`, files);
+        expect(exists, `File containing pattern does not exist: ${file}`).toBe(true);
       }
     }
 

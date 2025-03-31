@@ -30,7 +30,6 @@
     "toml",
     "hjson"
   ],
-  "publisherName": "opus",
   "license": "MIT",
   "module": "https://cdn.jsdelivr.net/npm/plugin-message-format-hjson-toml@latest/dist/index.js"
 }

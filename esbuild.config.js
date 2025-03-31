@@ -22,6 +22,10 @@ const ctx = await context({
   platform: 'neutral',
   // sourcemaps are unused at the moment
   sourcemap: false,
+  
+  // 添加 mainFields 配置
+  mainFields: ['module', 'main'],
+  
 
   plugins: [
     nodeModulesPolyfillPlugin({

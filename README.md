@@ -30,7 +30,6 @@ Or using HJSON:
 ```hjson
 //messages/fr.hjson
 {
-  # the $schema key is automatically ignored
   hello_world: Bonjour le monde!
   greeting: Bonjour {name}!
 }
